@@ -20,7 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  username: microverse_user
+  password: postgres
 development:
   <<: *default
   database: ror_blog_m5_w1_development
@@ -29,7 +30,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: ror_blog_m5_w1
+  username: microverse_user
 
   # The password associated with the postgres role (username).
   password: postgres
@@ -60,7 +61,7 @@ test:
   database: ror_blog_m5_w1_test
   host: localhost
   port: 5432
-  username: ror_blog_m5_w1
+  username: microverse_user
   password: postgres
 
 
@@ -87,5 +88,5 @@ test:
 production:
   <<: *default
   database: ror_blog_m5_w1_production
-  username: ror_blog_m5_w1
-  password: <%= ENV['ROR_BLOG_M5_W1_DATABASE_PASSWORD'] %>
+  username: microverse_user
+  password: postgres
