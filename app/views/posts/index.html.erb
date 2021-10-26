@@ -1,1 +1,26 @@
-<h1>Here is a list of posts for a given user</h1>
+<%= @user %>
+<div class="user-posts">
+  <div class="card">
+    <img src=<%=@user.photo %> alt="photo" class="photo">
+    <div class="card-info">
+      <h3 class="info-name" ><%= @user.name %> </h3>
+      <h5 class="info-number-posts" > Number of posts: <%= @user.post_counter %> </h5>
+    </div>
+  </div>
+  <% @post_data.each do |data| %>
+    <div class="bio">
+      <h5 class="bio-title"> Post #<%= data[0].title%> </h5>
+      <p class="bio-text"><%= data[0].text %></p>
+    </div>
+    <div class="post-comments">
+      <% data.each do |comment| %>
+        <%= comment %>
+        <div class="post-comment">
+          <h6 class="post_comment-text"><%= comment[0] %></h6>
+          <h6 class="post_comment-text"><%= comment[1]%></h6>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <%= button_to "See all posts", { action: "obtain_all_posts" }, class: "user-button-all", id: "btn-user-close" %>
+</div>

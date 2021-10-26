@@ -12,4 +12,17 @@ class Post < ApplicationRecord
   def self.most_recent(post_id)
     Comment.where(post_id: post_id).order(created_at: :desc).limit(5)
   end
+
+  def self.all_comments(post_id)
+    comments_raw = Comment.where(post_id: post_id).order(created_at: :desc)
+    comments = []
+    if comments_raw.size.positive?
+      comments_raw.each do |comment|
+        user = User.find_by(id: comment.user_id)
+        data = [user.name, comment]
+        comments << data
+      end
+    end
+    comments
+  end
 end

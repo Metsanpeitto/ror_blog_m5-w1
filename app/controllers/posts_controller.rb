@@ -4,6 +4,14 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    @user = User.find_by(id: params[:user_id])
+    @user_posts = Post.where(user_id: params[:user_id])
+    @post_data = []
+    @user_posts.each do |post|
+      data = [post, Post.all_comments(post.id)]
+      @post_data << data
+    end
+    @post_data
   end
 
   # GET /posts/1 or /posts/1.json
