@@ -15,10 +15,11 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @posts = Post.all
     @user = User.find_by(id: params[:user_id])
-    @user_posts = Post.where(user_id: params[:user_id])
-    @post_data = prepare_post_comment
+    @user_posts = []
+    @user_posts << Post.find_by(id: params[:id])
+    data = prepare_post_comment
+    @post_data = data[0]
   end
 
   # GET /posts/new
@@ -81,7 +82,8 @@ class PostsController < ApplicationController
   def prepare_post_comment
     post_data = []
     @user_posts.each do |post|
-      data = [post, Post.all_comments(post.id)]
+      new_post = Post.likes_comments(post)
+      data = [new_post, Post.all_comments(new_post.id)]
       post_data << data
     end
     post_data

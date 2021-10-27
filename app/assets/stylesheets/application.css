@@ -14,6 +14,11 @@
  *= require_self
  */
 
+ h6 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+ }
+
  .card {
     display: inline-flex;
     margin: 2%;
@@ -44,7 +49,9 @@
     margin: 2%;
     margin-bottom: .5%;
     margin-left: 10%;
+    margin-right: 10%;
     max-width: 80%;  
+    padding: 2%;
  }
 
  .bio-title {
@@ -55,13 +62,29 @@
     margin: 2%;
  }
 
+ .bio-likes {
+   margin-left: auto; 
+ }
+
  .post-comments {
     border: 2px solid black;
     margin: 2%;
     margin-top: 0%;
     margin-left: 10%;
+    margin-right: 10%;
     max-width: 80%;
+    padding: 2%;
  }
+
+ .post-comment {
+
+ }
+
+ .post-top {
+  display: flex;    
+ }
+
+
 
  .button_to {
     width: max-content;
