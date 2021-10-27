@@ -42,6 +42,7 @@
  .bio {
     border: 2px solid black;
     margin: 2%;
+    margin-bottom: .5%;
     margin-left: 10%;
     max-width: 80%;  
  }
@@ -52,6 +53,14 @@
 
   .bio-text {
     margin: 2%;
+ }
+
+ .post-comments {
+    border: 2px solid black;
+    margin: 2%;
+    margin-top: 0%;
+    margin-left: 10%;
+    max-width: 80%;
  }
 
  .button_to {

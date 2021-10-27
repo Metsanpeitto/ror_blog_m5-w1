@@ -1,4 +1,3 @@
-<%= @user %>
 <div class="user-posts">
   <div class="card">
     <img src=<%=@user.photo %> alt="photo" class="photo">
@@ -13,14 +12,12 @@
       <p class="bio-text"><%= data[0].text %></p>
     </div>
     <div class="post-comments">
-      <% data.each do |comment| %>
-        <%= comment %>
+      <% data[1].each do |comment| %>
         <div class="post-comment">
-          <h6 class="post_comment-text"><%= comment[0] %></h6>
-          <h6 class="post_comment-text"><%= comment[1]%></h6>
+          <h6 class="post_comment-text"><%= comment[0] %> : <%= comment[1].text%></h6>
         </div>
       <% end %>
     </div>
   <% end %>
-  <%= button_to "See all posts", { action: "obtain_all_posts" }, class: "user-button-all", id: "btn-user-close" %>
+  <%= button_to "See all posts", { action: "all_posts" }, class: "user-button-all", id: "btn-user-close" %>
 </div>
