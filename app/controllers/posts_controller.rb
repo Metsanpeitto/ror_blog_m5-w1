@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
+  def like_hit
+    post_id = params[:data][:post_id]
+    user_id = params[:data][:user_id]
+    Like.increment(user_id, post_id)
+    Like.update_counter(post_id)
+    redirect_back fallback_location: { action: 'show' }
+  end
+
   def all_posts(id)
     User.all_posts(id)
   end
@@ -32,7 +40,10 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    id = params[:user_id]
+    title = post_params[:title]
+    text = post_params[:text]
+    @post = Post.new(user_id: id, title: title, text: text)
 
     respond_to do |format|
       if @post.save
@@ -77,6 +88,7 @@ class PostsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def post_params
     params.fetch(:post, {})
+    params.require(:post).permit(:title, :text)
   end
 
   def prepare_post_comment

@@ -2,15 +2,24 @@
   <div class="bio">
     <div class="post-top">
       <h5 class="bio-title"> Post #<%= @post_data[0].title%> by <%= @user.name %> </h5>
-      <h5 class="bio-likes"> Comments: <%= @post_data[0].likes_counter %>, Likes: <%= @post_data[0].comments_counter %> </h5>
+      <h5 class="bio-likes"> Comments: <%= @post_data[0].comments_counter %>, Likes: <%= @post_data[0].likes_counter %> </h5>
     </div>
     <p class="bio-text"><%= @post_data[0].text %></p>
+    <%= button_to "Like", { controller: "posts", action: "like_hit", data: {post_id: @post_data[0], user_id: @user.id  }}, class: 'btn btn-danger' %>
   </div>
   <div class="post-comments">
+    <%= form_with(model: [@post, @post.comments.build]) do |f| %>
+      <div class="form-group-comment">
+        <%= f.label 'New comment' %>
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
     <% @post_data[1].each do |comment| %>
       <div class="post-comment">
         <h6 class="post_comment-text"><%= comment[0] %> : <%= comment[1].text%></h6>
       </div>
     <% end %>
+    <%%>
   </div>
 </div>

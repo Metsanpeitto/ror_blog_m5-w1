@@ -76,10 +76,6 @@
     padding: 2%;
  }
 
- .post-comment {
-
- }
-
  .post-top {
   display: flex;    
  }
@@ -90,3 +86,23 @@
     width: max-content;
     margin: auto;
  }
+
+ .new_post {
+        display: grid;
+        width: 300px;
+}
+
+.text-area-form {
+   min-height: 200px;
+}
+
+form {
+   display: grid;
+   max-width: 300px;
+   margin: auto;
+}
+
+.form-group-comment {
+   display: grid;
+   text-align: center;
+}
