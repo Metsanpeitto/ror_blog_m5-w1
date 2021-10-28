@@ -3,6 +3,7 @@
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
 Ror blog is a practical exercise where I have to get familiar with RoR and its basic features.
+![blog all user posts](./images/blog_user_all_posts.png)
 
 =======
 
