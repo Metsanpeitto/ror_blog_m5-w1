@@ -11,6 +11,7 @@ Ror blog is a practical exercise where I have to get familiar with RoR and its b
 - Ruby on Rails
 - Rubocop
 
+
 =======
 
 ### Prerequisites
