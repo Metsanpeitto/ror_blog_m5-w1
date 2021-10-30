@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :comments
   root to: "users#index"
   get "all_posts", to: 'posts#all_posts' 
