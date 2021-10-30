@@ -1,6 +1,9 @@
 class User < ApplicationRecord
-  has_many :comments
-  has_many :posts
+  has_many :comments, dependent: :delete_all
+  has_many :posts, dependent: :delete_all
+  validates :name, presence: true, allow_blank: false
+  validates :photo, :bio, presence: true
+  validates :post_counter, presence: true, numericality: { other_than: 0 }
 
   def self.obtain_last_posts(id)
     Post.where(user_id: id).limit(3)

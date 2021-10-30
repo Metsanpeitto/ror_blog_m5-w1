@@ -5,6 +5,9 @@
 Ror blog is a practical exercise where I have to get familiar with RoR and its basic features.
 ![blog all user posts](./images/blog_user_all_posts.png)
 
+The app is simple blog where users can create an account and create posts, access to other people posts, and
+like and comment in them.
+
 =======
 
 ## Built With 

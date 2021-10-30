@@ -1,0 +1,15 @@
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211028-14322-xcejpz.rb extconf.rb
+creating Makefile
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -m 0755 websocket_mask.so ./.gem.20211028-14322-aluf90
