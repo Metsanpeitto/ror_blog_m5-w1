@@ -49,8 +49,12 @@ ActiveRecord::Schema.define(version: 2021_10_30_134718) do
     t.string "name"
     t.string "photo"
     t.text "bio"
+<<<<<<< HEAD
     t.integer "post_counter", default: 1
     t.string "email"
+=======
+    t.integer "post_counter"
+>>>>>>> crud-branch-copy
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
