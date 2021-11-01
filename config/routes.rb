@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   post 'posts',to: 'posts#create'
   post 'posts/like_hit', to: 'posts#like_hit'
   
-  resources :users do    
+  resources :users do
+    member do
+      get :confirm_email
+    end    
     resources :posts 
   end
 
