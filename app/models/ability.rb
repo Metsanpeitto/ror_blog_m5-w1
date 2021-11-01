@@ -1,7 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize( user )
+  def initialize(user)
     user ||= User.new
 
     # Define User abilities
@@ -11,5 +11,4 @@ class Ability
       can :read, Post, Comment
     end
   end
-
 end
