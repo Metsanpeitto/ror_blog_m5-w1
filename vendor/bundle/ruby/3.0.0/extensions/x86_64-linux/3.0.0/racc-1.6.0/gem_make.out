@@ -1,0 +1,17 @@
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+/home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211101-13580-otpxrx.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -m 0755 cparse.so ./.gem.20211101-13580-5vnbho/racc

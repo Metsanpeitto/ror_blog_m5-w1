@@ -1,0 +1,19 @@
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+/home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211101-13580-l2d4lt.rb extconf.rb
+creating Makefile
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -m 0755 byebug.so ./.gem.20211101-13580-5e4qlu/byebug
