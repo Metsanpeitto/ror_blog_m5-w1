@@ -44,6 +44,18 @@ ruby main.rb
 - rubocop -A
 ```
 
+### Install Stylelint
+
+```
+- npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x 
+```
+
+### Fix style
+
+```
+- npx stylelint "**/*.{css,scss}" 
+```
+
 ### Instruction for non technical persons
 
 If you are non a technical person you can download the zip file.
