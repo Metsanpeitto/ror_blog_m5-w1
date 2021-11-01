@@ -22,14 +22,14 @@ follow the instructions [here](https://www.ruby-lang.org/en/documentation/instal
 
 If you want a copy of this file go to the github repository and download it from there
 
-- [`git clone https://github.com/Metsanpeitto/ ror_blog_m5-w1`](https://github.com/Metsanpeitto/ ror_blog_m5-w1)
+- [`git clone https://github.com/Metsanpeitto/ror_blog_m5-w1`](https://github.com/Metsanpeitto/ror_blog_m5-w1)
 
 
 ### Setup
 
 ```cmd
-git clone  https://github.com/Metsanpeitto/ ror_blog_m5-w1.git
-cd ./ ror_blog_m5-w1
+git clone  https://github.com/Metsanpeitto/ror_blog_m5-w1.git
+cd ./ror_blog_m5-w1
 ```
 
 ### Usage
