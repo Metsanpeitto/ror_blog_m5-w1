@@ -11,8 +11,6 @@ class Ability
       can :read, Post, Comment
     end
 
-    if user.present? 
-      can :manage, Post, Comment
-    end
+    can :manage, Post, Comment if user.present?
   end
 end
