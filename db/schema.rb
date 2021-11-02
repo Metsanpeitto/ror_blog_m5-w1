@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_01_235006) do
+ActiveRecord::Schema.define(version: 2021_10_30_134718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,21 +39,33 @@ ActiveRecord::Schema.define(version: 2021_11_01_235006) do
     t.string "title"
     t.text "text"
     t.integer "comments_counter", default: 1
-    t.integer "likes_counter"
+    t.integer "likes_counter", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string "name"
     t.string "photo"
     t.text "bio"
     t.integer "post_counter", default: 1
-    t.string "email"
+    t.boolean "email_confirmed"
+    t.string "confirm_token"
+    t.string "role", default: "default"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "role", default: "default"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "comments", "posts", on_delete: :cascade
