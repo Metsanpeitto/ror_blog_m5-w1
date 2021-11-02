@@ -10,6 +10,10 @@
     <div class="bio">
       <h5 class="bio-title"> Post #<%= data[0].title%> </h5>
       <p class="bio-text"><%= data[0].text %></p>
+      <% if can? :destroy, @user %>
+        <%= button_to "delete", {:controller => :posts,
+      :action => 'destroy', :id => data[0].id }, :method => :delete %>
+      <% end %>
     </div>
     <div class="post-comments">
       <% data[1].each do |comment| %>
