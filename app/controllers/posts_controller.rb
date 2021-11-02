@@ -1,13 +1,26 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
+  def all_posts(id)
+    User.all_posts(id)
+  end
+
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    @user = User.find_by(id: params[:user_id])
+    @user_posts = Post.where(user_id: params[:user_id])
+    @post_data = prepare_post_comment
   end
 
   # GET /posts/1 or /posts/1.json
-  def show; end
+  def show
+    @user = User.find_by(id: params[:user_id])
+    @user_posts = []
+    @user_posts << Post.find_by(id: params[:id])
+    data = prepare_post_comment
+    @post_data = data[0]
+  end
 
   # GET /posts/new
   def new
@@ -64,5 +77,15 @@ class PostsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def post_params
     params.fetch(:post, {})
+  end
+
+  def prepare_post_comment
+    post_data = []
+    @user_posts.each do |post|
+      new_post = Post.likes_comments(post)
+      data = [new_post, Post.all_comments(new_post.id)]
+      post_data << data
+    end
+    post_data
   end
 end

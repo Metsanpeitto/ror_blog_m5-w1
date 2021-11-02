@@ -41,20 +41,21 @@ ruby main.rb
 ### Verify rubocop
 
 ```
-- rubocop -A
+rubocop -A
 ```
 
-### Install Stylelint
+### Instal Stylelint
 
 ```
-- npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x 
+npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
 ```
 
-### Fix style
+### Stylelint autofix
 
 ```
-- npx stylelint "**/*.{css,scss}" 
+npx stylelint "**/*.{css,scss}" --fix
 ```
+
 
 ### Instruction for non technical persons
 

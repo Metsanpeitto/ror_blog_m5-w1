@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_213403) do
+ActiveRecord::Schema.define(version: 2021_10_30_134718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_10_25_213403) do
     t.bigint "user_id", null: false
     t.string "title"
     t.text "text"
-    t.integer "comments_counter"
+    t.integer "comments_counter", default: 1
     t.integer "likes_counter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -49,14 +49,19 @@ ActiveRecord::Schema.define(version: 2021_10_25_213403) do
     t.string "name"
     t.string "photo"
     t.text "bio"
+<<<<<<< HEAD
+    t.integer "post_counter", default: 1
+    t.string "email"
+=======
     t.integer "post_counter"
+>>>>>>> crud-branch-copy
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users"
-  add_foreign_key "likes", "posts"
-  add_foreign_key "likes", "users"
-  add_foreign_key "posts", "users"
+  add_foreign_key "comments", "posts", on_delete: :cascade
+  add_foreign_key "comments", "users", on_delete: :cascade
+  add_foreign_key "likes", "posts", on_delete: :cascade
+  add_foreign_key "likes", "users", on_delete: :cascade
+  add_foreign_key "posts", "users", on_delete: :cascade
 end

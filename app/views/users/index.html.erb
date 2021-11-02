@@ -1,1 +1,9 @@
-<h1>Here is a list of users</h1>
+<% @users.each do |user|%>
+  <div class="card">
+    <img src=<%=user.photo %> alt="photo" class="photo">
+    <div class="card-info">
+      <h3 class="info-name" ><%= user.name%> </h3>
+      <h5 class="info-number-posts" >Number of posts: <%= user.post_counter %> </h5>
+    </div>
+  </div>
+<% end %>
