@@ -22,14 +22,14 @@ follow the instructions [here](https://www.ruby-lang.org/en/documentation/instal
 
 If you want a copy of this file go to the github repository and download it from there
 
-- [`git clone https://github.com/Metsanpeitto/ ror_blog_m5-w1`](https://github.com/Metsanpeitto/ ror_blog_m5-w1)
+- [`git clone https://github.com/Metsanpeitto/ror_blog_m5-w1`](https://github.com/Metsanpeitto/ror_blog_m5-w1)
 
 
 ### Setup
 
 ```cmd
-git clone  https://github.com/Metsanpeitto/ ror_blog_m5-w1.git
-cd ./ ror_blog_m5-w1
+git clone  https://github.com/Metsanpeitto/ror_blog_m5-w1.git
+cd ./ror_blog_m5-w1
 ```
 
 ### Usage
@@ -41,8 +41,21 @@ ruby main.rb
 ### Verify rubocop
 
 ```
-- rubocop -A
+rubocop -A
 ```
+
+### Instal Stylelint
+
+```
+npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+```
+
+### Stylelint autofix
+
+```
+npx stylelint "**/*.{css,scss}" --fix
+```
+
 
 ### Instruction for non technical persons
 
