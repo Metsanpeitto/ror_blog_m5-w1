@@ -3,7 +3,6 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    byebug
     # Define User abilities
     if user.is? :admin
       can :manage, Post, Comment

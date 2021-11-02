@@ -22,7 +22,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.post_counter = 1
-    byebug
     respond_to do |format|
       if @user.save
         UserMailer.registration_confirmation(@user).deliver
