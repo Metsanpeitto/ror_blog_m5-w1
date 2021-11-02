@@ -32,10 +32,8 @@ class Post < ApplicationRecord
   end
 
   def self.likes_comments(post)
-    num_likes = Like.where(post_id: post.id).count
-    num_comments = Comment.where(post_id: post.id).count
-    post[:likes_counter] = num_likes
-    post[:comments_counter] = num_comments
+    post[:likes_counter] = Like.where(post_id: post.id).count
+    post[:comments_counter] = Comment.where(post_id: post.id).count
     post
   end
 end

@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :posts
-  get "/users/:user_id/posts", to: "posts#index" # usually requires a view
-  get "/users/:user_id/posts/:id", to: "posts#show" # usually requires a view
-  root "users#index"
+  root to: "users#index"
+  get  '/users/:user_id/posts/new',to: 'posts#new'
+  post 'posts',to: 'posts#create'
+  post 'posts/like_hit', to: 'posts#like_hit'
+  
+  resources :users do    
+    resources :posts 
+  end
+
+  resources :posts do
+    resources :comments, :likes  
+  end
 end
