@@ -103,3 +103,7 @@ form {
   display: grid;
   text-align: center;
 }
+
+.log-title {
+  text-align: center;
+}

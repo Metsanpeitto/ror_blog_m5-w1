@@ -49,9 +49,13 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+        flash[:notice] = 'You have successfully created post.'
+
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+        flash[:alert] = "The post coulnd't be created."
+
       end
     end
   end

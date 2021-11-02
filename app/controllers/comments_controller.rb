@@ -26,10 +26,12 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html do
+          flash[:notice] = 'You have successfully create a comment.'
           redirect_to user_post_path(id: @post.id, user_id: @user.id), notice: 'Comment was successfully created.'
         end
         format.json { render :show, status: :created, location: @comment }
       else
+        flash[:alert] = "The comment couldn't be created."
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end

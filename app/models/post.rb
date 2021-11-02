@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
-  belongs_to :user
-  has_many :comments
-  has_many :likes
-  validates :title, :text, presence: true
+  belongs_to :user, optional: true
+  has_many :comments, dependent: :delete_all
+  has_many :likes, dependent: :delete_all
+  validates :title, :text, presence: true, length: { minimum: 1, maximum: 250 }
+  validates :comments_counter, :likes_counter, presence: true, numericality: { other_than: 0 }
 
   def self.update_counter(user_id)
     num_posts = Post.where(user_id: user_id).count

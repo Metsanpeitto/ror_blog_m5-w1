@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
-  belongs_to :user
-  belongs_to :post
+  belongs_to :user, optional: true
+  belongs_to :post, optional: true
 
   def self.increment(user_id, post_id)
     Like.create(user_id: user_id, post_id: post_id)
