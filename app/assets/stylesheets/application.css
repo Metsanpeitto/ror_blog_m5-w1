@@ -14,95 +14,92 @@
  *= require_self
  */
 
- h6 {
-    margin-top: 0%;
-    margin-bottom: 0%;
- }
+h6 {
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
 
- .card {
-    display: inline-flex;
-    margin: 2%;
-    margin-left: 10%;
-    width: 80%;
+.card {
+  display: inline-flex;
+  margin: 2%;
+  margin-left: 10%;
+  width: 80%;
+}
 
- }
+.card-info {
+  width: 90%;
+  border: 2px solid black;
+  margin-left: 4%;
+  padding: 2%;
+  display: flex;
+  justify-content: space-around;
+  max-height: 60px;
+}
 
- .card-info {
-    width: 90%;
-    border: 2px solid black;
-    margin-left: 4%;
-    padding: 2%;
-    display: flex;
-    justify-content: space-around;
-    max-height: 60px;
- }
+.photo {
+  display: block;
+  width: 100px;
+  min-height: 60px;
+  border: 2px solid black;
+}
 
- .photo {
-    display: block;
-    width: 100px;
-    min-height: 60px;
-    border: 2px solid black;
- }
+.bio {
+  border: 2px solid black;
+  margin: 2%;
+  margin-bottom: 0.5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  max-width: 80%;
+  padding: 2%;
+}
 
- .bio {
-    border: 2px solid black;
-    margin: 2%;
-    margin-bottom: .5%;
-    margin-left: 10%;
-    margin-right: 10%;
-    max-width: 80%;  
-    padding: 2%;
- }
+.bio-title {
+  margin: 2%;
+}
 
- .bio-title {
-    margin: 2%;
- }
+.bio-text {
+  margin: 2%;
+}
 
-  .bio-text {
-    margin: 2%;
- }
+.bio-likes {
+  margin-left: auto;
+}
 
- .bio-likes {
-   margin-left: auto; 
- }
+.post-comments {
+  border: 2px solid black;
+  margin: 2%;
+  margin-top: 0%;
+  margin-left: 10%;
+  margin-right: 10%;
+  max-width: 80%;
+  padding: 2%;
+}
 
- .post-comments {
-    border: 2px solid black;
-    margin: 2%;
-    margin-top: 0%;
-    margin-left: 10%;
-    margin-right: 10%;
-    max-width: 80%;
-    padding: 2%;
- }
+.post-top {
+  display: flex;
+}
 
- .post-top {
-  display: flex;    
- }
+.button_to {
+  width: max-content;
+  margin: auto;
+}
 
-
-
- .button_to {
-    width: max-content;
-    margin: auto;
- }
-
- .new_post {
-        display: grid;
-        width: 300px;
+.new_post {
+  display: grid;
+  width: 300px;
 }
 
 .text-area-form {
-   min-height: 200px;
+  min-height: 200px;
 }
 
 form {
-   display: grid;
-   max-width: 300px;
-   margin: auto;
+  display: grid;
+  max-width: 300px;
+  margin: auto;
 }
 
 .form-group-comment {
-   display: grid;
-   text-align: center;
+  display: grid;
+  text-align: center;
 }
