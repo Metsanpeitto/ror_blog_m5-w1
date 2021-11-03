@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users or /users.json
@@ -18,11 +19,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit; end
-
-  def test_mail
-    @user = current_user
-    UserMailer.registration_confirmation(@user).deliver
-  end
 
   # POST /users or /users.json
   def create
@@ -80,7 +76,7 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   # Only allow a list of trusted parameters through.
