@@ -19,11 +19,15 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit; end
 
+  def test_mail
+    @user = current_user
+    UserMailer.registration_confirmation(@user).deliver
+  end
+
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
     @user.post_counter = 1
-    byebug
     respond_to do |format|
       if @user.save
         UserMailer.registration_confirmation(@user).deliver
