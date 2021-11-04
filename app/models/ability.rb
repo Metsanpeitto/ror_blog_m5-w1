@@ -2,13 +2,19 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new
+    can :read, Post, public: true
+    can :read, Comment, public: true
+    can :write, Comment, public: true
 
-    # Define User abilities
-    if user.is? :admin
-      can :manage, Post, Comment
-    else
-      can :read, Post, Comment
-    end
+    return unless user.present? # additional permissions for logged in users (they can manage their own posts)
+
+    can :read, Post
+    can :manage, Post, user_id: user.id
+    can :manage, Comment, public: true
+
+    return unless user.role == 'admin' # additional permissions for administrators
+
+    can :manage, Post, user_id: user.id
+    can :manage, Comment
   end
 end

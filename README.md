@@ -3,10 +3,9 @@
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
 Ror blog is a practical exercise where I have to get familiar with RoR and its basic features.
-![blog all user posts](./images/blog_user_all_posts.png)
+[blog all user posts](./images/blog_user_all_posts.png)
 
-The app is simple blog where users can create an account and create posts, access to other people posts, and
-like and comment in them.
+The app is simple blog where users can create an account in order to create posts, access to other people's posts, and like and comment in them.
 
 =======
 
@@ -26,26 +25,55 @@ follow the instructions [here](https://www.ruby-lang.org/en/documentation/instal
 
 If you want a copy of this file go to the github repository and download it from there
 
-- [`git clone https://github.com/Metsanpeitto/ ror_blog_m5-w1`](https://github.com/Metsanpeitto/ ror_blog_m5-w1)
+- [`git clone https://github.com/Metsanpeitto/ror_blog_m5-w1`](https://github.com/Metsanpeitto/ror_blog_m5-w1)
 
 
 ### Setup
 
 ```cmd
-git clone  https://github.com/Metsanpeitto/ ror_blog_m5-w1.git
-cd ./ ror_blog_m5-w1
+git clone  https://github.com/Metsanpeitto/ror_blog_m5-w1.git
+cd ./ror_blog_m5-w1
+```
+
+### Install gems
+
+```cmd
+bundle install
+```
+
+### Database creation
+
+```cmd
+# Open Postgres form the terminal 
+$ psql postgres
+
+# Create user
+postgres=# create user microverse-user -s
+
+# Create db 
+postgres=# create db ror_blog_m5_w1_development -s
+
+# Destroys older, create new and populate with seed from the terminal
+$ rake db:reset
+```
+
+
+### Apply migration (only if you generate a new migration file)
+
+```cmd
+rails db:migrate
 ```
 
 ### Usage
 
 ```cmd
-ruby main.rb
+$ruby main.rb
 ```
 
 ### Verify rubocop
 
 ```
-- rubocop -A
+$ rubocop -A
 ```
 
 ### Instruction for non technical persons

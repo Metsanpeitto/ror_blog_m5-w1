@@ -33,8 +33,12 @@ t.datetime :remember_created_at
 t.string :name
 t.string :photo
 t.text :bio
-t.integer :post_counter ,default: 0
+t.integer :post_counter ,default: 1
 t.timestamps null: false
+t.string :role, default: 'default'
+t.boolean :email_confirmed
+t.string :confirm_token
+
 end
 
 add_index :users, :email, unique: true

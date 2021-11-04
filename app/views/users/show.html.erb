@@ -16,5 +16,5 @@
       <p class="bio-text"><%= post.text %></p>
     </div>
   <% end %>
-  <%= button_to "See all posts",  class: "user-button-all", id: "btn-user-close" %>
+  <%= link_to ("/users/#{@user.id}/posts/new") %>
 </div>
