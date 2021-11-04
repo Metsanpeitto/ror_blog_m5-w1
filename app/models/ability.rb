@@ -10,7 +10,7 @@ class Ability
 
     can :read, Post
     can :manage, Post, user_id: user.id
-    can :manage, Comment, public: true
+    can :manage, Comment
 
     return unless user.role == 'admin' # additional permissions for administrators
 

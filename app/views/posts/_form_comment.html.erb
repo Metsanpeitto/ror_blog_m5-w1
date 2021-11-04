@@ -2,7 +2,7 @@
   <%= form_with(model: [@post, @post.comments.build]) do |f| %>
     <div class="form-group-comment">
       <%= f.label 'New comment' %>
-      <%= f.text_area :body, class: 'form-control' %>
+      <%= f.text_area :text, class: 'form-control' %>
     </div>
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
   <% end %>

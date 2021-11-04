@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :comments
   root "users#index"
   post '/users/:user_id/posts/new',to: 'posts#new'
-  post 'posts',to: 'posts#create'
-  post 'posts/like_hit', to: 'posts#like_hit'
+  post '/posts/:post_id/comments/new', to: 'comments#new'
+  post '/posts',to: 'posts#create'
+  post '/posts/like_hit', to: 'posts#like_hit'
   
   resources :users do
     member do

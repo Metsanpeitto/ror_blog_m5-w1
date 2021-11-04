@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :photo, :bio, :email, presence: true
   validates :post_counter, presence: true, numericality: { other_than: 0 }
 
-  Roles = %i[admin default]
+  ROLES = %i[admin default].freeze
 
   def is?(requested_role)
     role == requested_role.to_s

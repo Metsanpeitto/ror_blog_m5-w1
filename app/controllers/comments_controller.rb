@@ -26,15 +26,13 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    byebug
     @post = Post.find_by(id: params[:post_id])
-    @comment = Comment.new(user_id: current_user.id, post_id: @post.id, text: params[:comment][:body])
+    @comment = Comment.new(user_id: current_user.id, post_id: @post.id, text: params[:comment][:text])
     respond_to do |format|
       if @comment.save
         format.html do
           flash[:notice] = 'You have successfully create a comment.'
-          # redirect_to user_post_path(id: @post.id, user_id: @user.id), notice: 'Comment was successfully created.'
-          redirect_to "/users/#{@user_id}/posts/", notice: 'Comment was successfully created.'
+          redirect_back fallback_location: root_path, notice: 'Comment was successfully created.'
         end
         format.json { render :show, status: :created, location: @comment }
       else
@@ -44,6 +42,14 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+  # def create
+  #  @post = Post.find(params[:post_id])
+  #  @comment = @post.comments.build(params[:comment])
+  #  @comment.user = current_user
+  #  @comment.save
+  #  redirect_to post_path(@post)
+  # end
 
   # PATCH/PUT /comments/1 or /comments/1.json
   def update
