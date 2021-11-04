@@ -1,5 +1,9 @@
 current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/pg-1.2.3/ext
+<<<<<<< HEAD
 /home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211028-14322-2aoeyg.rb extconf.rb
+=======
+/home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211101-8050-76sxvq.rb extconf.rb
+>>>>>>> 43371fa64e3da75b6abfce0f2a8892f38203f03d
 checking for pg_config... yes
 Using config values from /usr/bin/pg_config
 checking for libpq-fe.h... yes
@@ -66,4 +70,8 @@ linking shared-object pg_ext.so
 
 current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/pg-1.2.3/ext
 make "DESTDIR=" install
+<<<<<<< HEAD
 /usr/bin/install -m 0755 pg_ext.so ./.gem.20211028-14322-2luaab
+=======
+/usr/bin/install -m 0755 pg_ext.so ./.gem.20211101-8050-srw6xv
+>>>>>>> 43371fa64e3da75b6abfce0f2a8892f38203f03d

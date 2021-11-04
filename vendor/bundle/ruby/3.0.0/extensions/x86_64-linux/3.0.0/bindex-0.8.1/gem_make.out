@@ -1,5 +1,9 @@
 current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+<<<<<<< HEAD
 /home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211028-14322-s4s9lg.rb extconf.rb
+=======
+/home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211101-8050-elxm2z.rb extconf.rb
+>>>>>>> 43371fa64e3da75b6abfce0f2a8892f38203f03d
 creating Makefile
 
 current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
@@ -12,4 +16,8 @@ linking shared-object skiptrace/internal/cruby.so
 
 current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
 make "DESTDIR=" install
+<<<<<<< HEAD
 /usr/bin/install -m 0755 cruby.so ./.gem.20211028-14322-cwq4o4/skiptrace/internal
+=======
+/usr/bin/install -m 0755 cruby.so ./.gem.20211101-8050-vqmo0i/skiptrace/internal
+>>>>>>> 43371fa64e3da75b6abfce0f2a8892f38203f03d
