@@ -89,11 +89,11 @@ Bullet.add_footer = true
 config.action_mailer.delivery_method = :smtp
 host = 'localhost:3000' #replace with your own url
 config.action_mailer.default_url_options = { host: host }
+#config.action_mailer.default_options = { from: ENV["GMAIL_USERNAME"] }
 config.action_mailer.default_options = { from: ENV["GMAIL_USERNAME"] }
-
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default :charset => "utf-8"
-
+config.action_mailer.default_url_options = Rails.application.default_url_options
 # SMTP settings for gmail
 config.action_mailer.smtp_settings = {
   :address => 'smtp.gmail.com',

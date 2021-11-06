@@ -29,21 +29,4 @@ RSpec.describe User, type: :model do
     subject.post_counter = 0
     expect(subject).to_not be_valid
   end
-
-  # describe '.obtain_last_posts' do
-  #  before do
-  #    @user_posts = described_class.obtain_all_posts(1)
-  #    @posts = []
-  #    3.times do |i|
-  #      next unless i.even?
-
-  #      post = Post.new(user_id: 1, title: "The post-test-#{i}+4", text: 'Alkdfgjdklfgasdasdasdasd')
-  #      @posts << post
-  #    end
-  #  end
-
-  #  it 'scopes the articles in descending order' do
-  #    expect(@user_posts).to match_array([@posts])
-  #  end
-  # end
 end
