@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @user_posts = Post.where(user_id: params[:user_id])
     @post_data = prepare_post_comment
     current_user
+    authorize! :manage, :all
   end
 
   # GET /posts/1 or /posts/1.json

@@ -8,7 +8,9 @@ require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'capybara/rails'
 require 'capybara/rspec'
 require_relative 'support/controller_macros'
 require_relative 'support/factory_bot'
@@ -97,6 +99,14 @@ RSpec.configure do |config|
 
   config.include Warden::Test::Helpers
   config.include Capybara::DSL
+  Capybara.app_host = 'http://localhost:3000'
+  Capybara.server_host = 'localhost'
+  Capybara.server_port = '3000'
   config.include Devise::TestHelpers, type: :controller
   config.include ControllerMacros, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Warden::Test::Helpers
+  config.include Features::SessionHelpers, type: :feature
 end

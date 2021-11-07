@@ -1,5 +1,5 @@
 <% @users.each do |user|%>
-  <%= link_to ("/users/#{user.id}/posts") do %>
+  <%= link_to ("/users/#{user.id}/posts"), id:user.id do %>
     <div class="card">
       <img src=<%=user.photo %> alt="photo" class="photo">
       <div class="card-info">

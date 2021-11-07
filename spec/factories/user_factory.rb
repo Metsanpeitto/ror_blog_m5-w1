@@ -7,6 +7,12 @@ FactoryBot.define do
     photo { 'https://imgur.9823432/' }
     bio { 'Lots of things to say in here' }
     role { 'default' }
-    post_counter { 1 }
+    post_counter { 6 }
+
+    factory :user_posts do
+      posts do
+        Array.new(6) { association(:post) }
+      end
+    end
   end
 end
