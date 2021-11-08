@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
   load_and_authorize_resource
+  before_action :set_post, only: %i[show edit update destroy]
 
   def like_hit
     post_id = params[:data][:post_id]
@@ -16,23 +16,17 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
     @user = User.find_by(id: params[:user_id])
-    @user_posts = Post.where(user_id: params[:user_id])
-    @post_data = prepare_post_comment
-    current_user
-    authorize! :manage, :all
+    @posts = Post.where(user_id: params[:user_id])
+    @posts = Post.update_all(@posts)
   end
 
   # GET /posts/1 or /posts/1.json
   def show
-    user_id = current_user[:id]
-    post_id = params[:id]
-    @user = User.find_by(id: user_id)
-    @user_posts = []
-    @user_posts << Post.find_by(id: post_id)
-    data = prepare_post_comment
-    @post_data = data.pop
+    @user = User.find_by(id: params[:user_id])
+    @post = @user.posts.find_by(id: params[:id])
+    @post = Post.update_counter(@post)
+    @comments = @post.comments
   end
 
   # GET /posts/new
@@ -79,6 +73,7 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    @post = Post.find_by(id: params[:id])
     @post.destroy
     respond_to do |format|
       format.html { redirect_to "/users/#{current_user.id}/posts", notice: 'Post was successfully destroyed.' }
@@ -97,15 +92,5 @@ class PostsController < ApplicationController
   def post_params
     params.fetch(:post, {})
     params.require(:post).permit(:title, :text)
-  end
-
-  def prepare_post_comment
-    post_data = []
-    @user_posts.each do |post|
-      new_post = Post.likes_comments(post)
-      data = [new_post, Post.all_comments(new_post.id)]
-      post_data << data
-    end
-    post_data
   end
 end

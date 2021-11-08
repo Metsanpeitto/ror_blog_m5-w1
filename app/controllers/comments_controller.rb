@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   before_action :set_user
   before_action :set_post
 
-  rescue_from CanCan::AccessDenied do
-    redirect_to root_path
-  end
+  # rescue_from CanCan::AccessDenied do
+  #  redirect_to root_path
+  # end
 
   # GET /comments or /comments.json
   def index

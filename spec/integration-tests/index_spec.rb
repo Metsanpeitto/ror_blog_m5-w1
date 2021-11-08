@@ -20,7 +20,7 @@ RSpec.describe 'Index view', type: :feature do
     it 'I can see the number of posts each user has written.' do
       page.all('h5', text: 'Number of posts')
     end
-    
+
     it 'When I click on a user, I am redirected to that user show page.
 ' do
       find_link(@other_user.id.to_s).click

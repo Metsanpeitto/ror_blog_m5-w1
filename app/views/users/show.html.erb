@@ -11,7 +11,7 @@
     <p class="bio-text"><%= @user.bio %></p>
   </div>
   <% @my_posts.each do |post| %>
-    <%= link_to ("/users/#{@user.id}/posts/#{post.id}"), id:post.id do %>
+    <%= link_to ("/users/#{@user.id}/posts/#{post.id}"), id:post.id, class: 'card-link' do %>
       <div class="bio">
         <h5 class="bio-title"> Post #<%= post.title%> </h5>
         <p class="bio-text"><%= post.text %></p>

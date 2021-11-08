@@ -19,18 +19,24 @@ class User < ApplicationRecord
     role == requested_role.to_s
   end
 
-  def self.obtain_last_posts(id)
-    Post.where(user_id: id).limit(3)
+  def obtain_last_posts(id)
+    @user = User.find_by(id: id)
+    @posts = @user.posts.limit(3)
   end
 
-  def self.obtain_all_posts(id)
-    Post.where(user_id: id)
+  def obtain_all_posts(id)
+    @user = User.find_by(id: id)
+    @posts = @user.posts
   end
 
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil
     save!(validate: false)
+  end
+
+  def recent_posts(limit = 3)
+    posts.includes(:comments).order('created_at').last(limit)
   end
 
   private

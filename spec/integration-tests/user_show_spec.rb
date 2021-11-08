@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Show view', type: :feature do
+RSpec.describe 'User show view', type: :feature do
   subject { page }
   before do
     login_user
@@ -27,23 +27,17 @@ RSpec.describe 'Show view', type: :feature do
     end
 
     it 'I can see the user first 3 posts.' do
-      find('div.bio', count: 3)
+      expect(page).to have_css('div.bio', minimum: 3)
     end
 
     it 'I can see a button that lets me view all of a user posts.' do
       expect(page).to have_selector('button')
     end
 
-    # it 'When I click a user post, it redirects me to that post show page.' do
-
-    #  expect(current_path).to eq user_post_path(user_id: @current_user.id, id: '1')
-    # end
-  end
-
-  describe 'after registration signout and login' do
     it 'I can see the number of posts each user has written.' do
-      page.find('#1', visible:all).click
-      expect(current_path).to eq user_post_path(user_id: @current_user.id, id: '1')
+      posts = @current_user.obtain_last_posts(@current_user.id)
+      click_link(posts[0].id.to_s)
+      expect(current_path).to eq user_post_path(@current_user.id, posts[0].id)
     end
   end
 end

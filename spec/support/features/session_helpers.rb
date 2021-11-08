@@ -3,8 +3,7 @@ require 'spec_helper'
 module Features
   module SessionHelpers
     def login_user
-      # @request.env['devise.mapping'] = Devise.mappings[:user]
-      user = FactoryBot.create(:user)
+      user = FactoryBot.create(:user_with_posts)
       user.confirm
       sign_in user
     end

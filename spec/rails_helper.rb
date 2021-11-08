@@ -102,11 +102,18 @@ RSpec.configure do |config|
   Capybara.app_host = 'http://localhost:3000'
   Capybara.server_host = 'localhost'
   Capybara.server_port = '3000'
-  config.include Devise::TestHelpers, type: :controller
   config.include ControllerMacros, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include Warden::Test::Helpers
   config.include Features::SessionHelpers, type: :feature
+
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end
