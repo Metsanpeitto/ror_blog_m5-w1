@@ -13,7 +13,9 @@ class User < ApplicationRecord
   validates :photo, :bio, :email, presence: true
   validates :post_counter, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  Roles = %i[admin default]
+  # rubocop: disable all
+  Roles = %i[admin default].freeze
+  # rubocop: enable all
 
   def is?(requested_role)
     role == requested_role.to_s

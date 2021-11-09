@@ -63,7 +63,7 @@ If you want a copy of this file go to the github repository and download it from
     rails db:reset
   ```
 
-* Becuase the email permission will be trouble, log into gmail with
+* Becuause the email permission will be trouble, log into gmail with
     ``` bash
       email: jarriror@gmail.com
       password: rubyonrails
@@ -80,10 +80,23 @@ If you want a copy of this file go to the github repository and download it from
 * You can see the working app at
   http://localhost:3000
 
+
 ### Verify rubocop
 
-```
+```cmd
 - rubocop -A
+```
+
+### Install Stylelint
+
+```cmd
+npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+```
+
+### Auto fix Stylelint
+
+```cmd
+npx stylelint "**/*.{css,scss}" --fix
 ```
 
 ### Instruction for non technical persons
