@@ -148,7 +148,6 @@ Give a ⭐️ if you like this project!
 
 =======
 
-
 ## Acknowledgments
 
 - Microverse for giving me this chance
