@@ -1,8 +1,6 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
   before_action :set_comment, only: %i[show edit update destroy]
-  before_action :set_user
-  before_action :set_post
 
   rescue_from CanCan::AccessDenied do
     redirect_to root_path
@@ -68,8 +66,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html do
+        flash[:notice] = 'Comment was successfully destroyed.'
+        redirect_back fallback_location: root_path, notice: 'Comment was successfully destroyed.'
+      end
+      format.json { render :show, status: :created, location: @comment }
     end
   end
 
@@ -78,16 +79,7 @@ class CommentsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_comment
     @comment = Comment.find_by(id: params[:id])
-  end
-
-  def set_post
-    @post = Post.find_by(id: params[:post_id])
-  end
-
-  def set_user
-    post = Post.find_by(id: params[:post_id])
-    @user = User.find_by(id: post[:user_id])
-    @user
+    @post = @comment.post_id
   end
 
   # Only allow a list of trusted parameters through.

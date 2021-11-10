@@ -20,8 +20,8 @@
         <div class="post-comment">
           <h6 class="post_comment-text"><%= comment[0] %> : <%= comment[1].text%></h6>
         </div>
-        <% if can? :delete, data[0] %>
-          <p><%= link_to "Delete Comment", comment[0] , :method => :delete, :confirm => "Are you sure?" %></p>
+        <% if can? :manage, comment[1] %>
+          <p><%= link_to "Delete Comment", comment[1], :method => :delete, :confirm => "Are you sure?" %></p>
         <% end %>
       <% end %>
     </div>
