@@ -11,7 +11,7 @@
       <h5 class="bio-title"> Post #<%= data[0].title%> </h5>
       <p class="bio-text"><%= data[0].text %></p>
       <% if can? :delete, data[0] %>
-        <p><%= link_to "Delete", data[0], :method => :delete, :confirm => "Are you sure?" %></p>
+        <p><%= link_to "Delete Post", data[0], :method => :delete, :confirm => "Are you sure?" %></p>
       <% end %>
     </div>
     <div class="post-comments">
@@ -20,6 +20,9 @@
         <div class="post-comment">
           <h6 class="post_comment-text"><%= comment[0] %> : <%= comment[1].text%></h6>
         </div>
+        <% if can? :delete, data[0] %>
+          <p><%= link_to "Delete Comment", comment[0] , :method => :delete, :confirm => "Are you sure?" %></p>
+        <% end %>
       <% end %>
     </div>
   <% end %>
