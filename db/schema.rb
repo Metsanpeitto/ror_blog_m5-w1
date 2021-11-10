@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_01_065810) do
+ActiveRecord::Schema.define(version: 2021_10_30_134718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2021_11_01_065810) do
     t.bigint "user_id", null: false
     t.string "title"
     t.text "text"
-    t.integer "comments_counter", default: 0
-    t.integer "likes_counter", default: 0
+    t.integer "comments_counter", default: 1
+    t.integer "likes_counter", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -57,12 +57,12 @@ ActiveRecord::Schema.define(version: 2021_11_01_065810) do
     t.string "name"
     t.string "photo"
     t.text "bio"
-    t.integer "post_counter", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_counter", default: 1
     t.boolean "email_confirmed"
     t.string "confirm_token"
-    t.string "role"
+    t.string "role", default: "default"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

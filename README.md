@@ -3,10 +3,6 @@
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
 Ror blog is a practical exercise where I have to get familiar with RoR and its basic features.
-![blog all user posts](./images/blog_user_all_posts.png)
-
-The app is simple blog where users can create an account and create posts, access to other people posts, and
-like and comment in them.
 
 =======
 
@@ -28,7 +24,7 @@ follow the instructions [here](https://www.ruby-lang.org/en/documentation/instal
 
 If you want a copy of this file go to the github repository and download it from there
 
-- [`git clone https://github.com/Metsanpeitto/ ror_blog_m5-w1`](https://github.com/Metsanpeitto/ ror_blog_m5-w1)
+- [`git clone https://github.com/Metsanpeitto/ror_blog_m5-w1`](https://github.com/Metsanpeitto/ror_blog_m5-w1)
 
 
 ### Setup
@@ -157,5 +153,4 @@ Give a ⭐️ if you like this project!
 
 [![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
-
 

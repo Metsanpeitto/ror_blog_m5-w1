@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :comments
+
   root "users#index"
   get "all_posts", to: 'posts#all_posts' 
   get  '/users/:user_id/posts/new',to: 'posts#new'
   post 'posts',to: 'posts#create'
   post 'posts/like_hit', to: 'posts#like_hit'
-  
+
   resources :users do
     member do
       get :confirm_email
@@ -18,3 +18,4 @@ Rails.application.routes.draw do
     resources :comments, :likes  
   end
 end
+
