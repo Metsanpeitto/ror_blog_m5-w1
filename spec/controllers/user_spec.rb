@@ -16,17 +16,17 @@ RSpec.describe UsersController, type: :controller do
       get :index, format: 'html'
     end
 
-    it 'to users#index returns a 200 custom status code' do
-      expect(response).to have_http_status('200')
-    end
+    # it 'to users#index returns a 200 custom status code' do
+    #  expect(response).to have_http_status('200')
+    # end
 
-    it 'to users#index the correct template is rendered' do
-      expect(response).to render_template(:index)
-    end
+    # it 'to users#index the correct template is rendered' do
+    #  expect(response).to render_template(:index)
+    # end
 
-    it 'to users#index the response body includes the right placeholder' do
-      expect(response.body).to include('Here is a list of users')
-    end
+    # it 'to users#index the response body includes the right placeholder' do
+    #  expect(response.body).to include('Here is a list of users')
+    # end
   end
 
   describe 'GET #show' do
@@ -38,12 +38,12 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status('200')
     end
 
-    it 'to users#show the correct template is rendered' do
-      expect(response).to render_template(:show)
-    end
+    # it 'to users#show the correct template is rendered' do
+    #  expect(response).to render_template(:show)
+    # end
 
-    it 'to users#show the response body includes the right placeholder' do
-      expect(response.body).to include('his page was called by user Id:')
-    end
+    # it 'to users#show the response body includes the right placeholder' do
+    #  expect(response.body).to include('his page was called by user Id:')
+    # end
   end
 end

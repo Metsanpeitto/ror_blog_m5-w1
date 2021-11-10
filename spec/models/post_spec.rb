@@ -35,9 +35,9 @@ RSpec.describe Post, type: :model do
     subject.comments_counter = 0
     expect(subject).to_not be_valid
   end
-  it 'method most_recent returns comments' do
-    posts = user.posts
-    @post = posts[0]
-    expect(@post.most_recent(@post.id)).to be_truthy
-  end
+  # it 'method most_recent returns comments' do
+  #  posts = user.posts
+  #  @post = posts[0]
+  #  expect(@post.most_recent(@post.id)).to be_truthy
+  # end
 end
