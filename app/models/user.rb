@@ -5,16 +5,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable
+         :database_authenticatable, :confirmable
 
   has_many :comments, dependent: :delete_all
   has_many :posts, dependent: :delete_all
   validates :name, presence: true, allow_blank: false
   validates :photo, :bio, :email, presence: true
-  validates :post_counter, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :post_counter, presence: true, numericality: { other_than: 0 }
 
   # rubocop: disable all
-  Roles = %i[admin default].freeze
+  Roles = [:admin, :default]
   # rubocop: enable all
 
   def is?(requested_role)
