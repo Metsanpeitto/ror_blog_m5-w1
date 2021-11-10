@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     namespace :api do
     namespace :v1 do
       get 'post/index'
+      post :id, to: 'post#comments'
+      post :new_comment, to: 'post#new_comment'
       post :auth, to: 'authentication#create'
       get  '/auth' => 'authentication#fetch'
     end
