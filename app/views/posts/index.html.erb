@@ -10,21 +10,25 @@
     <div class="bio">
       <h5 class="bio-title"> Post #<%= data[0].title%> </h5>
       <p class="bio-text"><%= data[0].text %></p>
-      <% if can? :delete, data[0] %>
-        <p><%= link_to "Delete Post", data[0], :method => :delete, :confirm => "Are you sure?" %></p>
-      <% end %>
-    </div>
-    <div class="post-comments">
-      <%= render partial: '/posts/form_comment', :locals => {:@post => data[0]} %>
-      <% data[1].each do |comment| %>
-        <div class="post-comment">
-          <h6 class="post_comment-text"><%= comment[0] %> : <%= comment[1].text%></h6>
-        </div>
-        <% if can? :manage, comment[1] %>
-          <p><%= link_to "Delete Comment", comment[1], :method => :delete, :confirm => "Are you sure?" %></p>
+      <% if can? :destroy, @user %>
+        <%= button_to "delete", {:controller => :posts,
+      :action => 'destroy', :id => data[0].id }, :method => :delete %>
+      </div>
+      <div class="post-comments">
+        <%= render partial: '/posts/form_comment', :locals => {:@post => data[0]} %>
+        <% data[1].each do |comment| %>
+          <div class="post-comment">
+            <h6 class="post_comment-text"><%= comment[0] %> : <%= comment[1].text%></h6>
+          </div>
+          <% if can? :manage, comment[1] %>
+            <p><%= link_to "Delete Comment", comment[1], :method => :delete, :confirm => "Are you sure?" %></p>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+    <<<<<<< HEAD
   <%= button_to "New post", { action: "new" }, class: "user-button-all", id: "btn-user-close" %>
-</div>
+=======
+  <%= button_to "See all posts", { action: "index", controller: "posts" }, class: "user-button-all", id: "btn-user-close" %>
+>>>>>>> devise-branch-copy
+    </div>

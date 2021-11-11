@@ -33,7 +33,15 @@ t.datetime :remember_created_at
 t.string :name
 t.string :photo
 t.text :bio
+<<<<<<< HEAD
 t.integer :post_counter ,default: 1
+=======
+t.integer :post_counter, default: 1
+t.boolean :email_confirmed
+t.string :confirm_token
+t.string :role, default: 'default'
+
+>>>>>>> devise-branch-copy
 t.timestamps null: false
 t.string :role, default: 'default'
 t.boolean :email_confirmed
