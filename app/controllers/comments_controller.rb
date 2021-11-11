@@ -6,23 +6,18 @@ class CommentsController < ApplicationController
     redirect_to root_path
   end
 
-  # GET /comments or /comments.json
   def index
     @comments = Comment.all
   end
 
-  # GET /comments/1 or /comments/1.json
   def show; end
 
-  # GET /comments/new
   def new
     @comment = Comment.new
   end
 
-  # GET /comments/1/edit
   def edit; end
 
-  # POST /comments or /comments.json
   def create
     @post = Post.find_by(id: params[:post_id])
     @comment = Comment.new(user_id: current_user.id, post_id: @post.id, text: params[:comment][:text])
@@ -49,7 +44,6 @@ class CommentsController < ApplicationController
   #  redirect_to post_path(@post)
   # end
 
-  # PATCH/PUT /comments/1 or /comments/1.json
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -62,7 +56,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1 or /comments/1.json
   def destroy
     @comment.destroy
     respond_to do |format|
@@ -76,13 +69,11 @@ class CommentsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_comment
     @comment = Comment.find_by(id: params[:id])
     @post = @comment.post_id
   end
 
-  # Only allow a list of trusted parameters through.
   def comment_params
     params.fetch(:comment, {})
     params.require(:comment).permit(:text, :body)

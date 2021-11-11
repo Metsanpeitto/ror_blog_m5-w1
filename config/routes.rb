@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :comments
   root "users#index"
   post '/users/:user_id/posts/new',to: 'posts#new'
   post '/posts/:post_id/comments/new', to: 'comments#new'
