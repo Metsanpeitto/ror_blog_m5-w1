@@ -3,13 +3,17 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    # Define User abilities
-    if user.is? :admin
-      can :manage, Post, Comment
+    if user.role.eql? 'admin'
+      can :manage, :all
     else
-      can :read, Post, Comment
+      can :manage, Post do |post|
+        post.user_id == user.id
+      end
+      can :manage, Comment do |comment|
+        comment.user_id == user.id
+      end
+      can :create, :all
+      can :read, :all
     end
-
-    can :manage, Post, Comment if user.present?
   end
 end

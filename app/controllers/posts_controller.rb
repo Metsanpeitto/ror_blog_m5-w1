@@ -13,7 +13,6 @@ class PostsController < ApplicationController
     User.all_posts(id)
   end
 
-  # GET /posts or /posts.json
   def index
     @posts = Post.all
     @user = User.find_by(id: params[:user_id])
@@ -21,7 +20,6 @@ class PostsController < ApplicationController
     @post_data = prepare_post_comment
   end
 
-  # GET /posts/1 or /posts/1.json
   def show
     @user = User.find_by(id: params[:user_id])
     @user_posts = []
@@ -30,15 +28,12 @@ class PostsController < ApplicationController
     @post_data = data[0]
   end
 
-  # GET /posts/new
   def new
     @post = Post.new
   end
 
-  # GET /posts/1/edit
   def edit; end
 
-  # POST /posts or /posts.json
   def create
     id = params[:user_id]
     title = post_params[:title]
@@ -60,7 +55,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -73,7 +67,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
@@ -84,12 +77,10 @@ class PostsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def post_params
     params.fetch(:post, {})
     params.require(:post).permit(:title, :text)
