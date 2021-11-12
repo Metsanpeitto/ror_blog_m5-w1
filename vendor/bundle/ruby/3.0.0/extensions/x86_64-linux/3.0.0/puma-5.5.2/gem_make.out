@@ -1,0 +1,33 @@
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/puma-5.5.2/ext/puma_http11
+<<<<<<< HEAD
+/home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211028-14322-70247q.rb extconf.rb
+=======
+/home/jarri/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/jarri/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20211101-8050-l1yndd.rb extconf.rb
+>>>>>>> 43371fa64e3da75b6abfce0f2a8892f38203f03d
+using OpenSSL pkgconfig (openssl.pc)
+checking for openssl/bio.h... yes
+checking for DTLS_method() in openssl/ssl.h... yes
+checking for TLS_server_method() in openssl/ssl.h... yes
+checking for SSL_CTX_set_min_proto_version(NULL, 0) in openssl/ssl.h... yes
+checking for X509_STORE_up_ref()... yes
+checking for SSL_CTX_set_ecdh_auto(NULL, 0) in openssl/ssl.h... yes
+checking for Random.bytes... yes
+creating Makefile
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/puma-5.5.2/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/puma-5.5.2/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: /home/jarri/Desktop/Work/Microverse/module-5/week1/ror_blog_m5-w1/vendor/bundle/ruby/3.0.0/gems/puma-5.5.2/ext/puma_http11
+make "DESTDIR=" install
+<<<<<<< HEAD
+/usr/bin/install -m 0755 puma_http11.so ./.gem.20211028-14322-6dw4hn/puma
+=======
+/usr/bin/install -m 0755 puma_http11.so ./.gem.20211101-8050-myf4qu/puma
+>>>>>>> 43371fa64e3da75b6abfce0f2a8892f38203f03d

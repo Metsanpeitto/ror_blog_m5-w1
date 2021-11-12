@@ -80,7 +80,37 @@ If you want a copy of this file go to the github repository and download it from
 ### Verify rubocop
 
 ```cmd
-- rubocop -A
+git clone  https://github.com/Metsanpeitto/ror_blog_m5-w1.git
+cd ./ror_blog_m5-w1
+```
+
+### Install gems
+
+```cmd
+bundle install
+```
+
+### Database creation
+
+```cmd
+# Open Postgres form the terminal 
+$ psql postgres
+
+# Create user
+postgres=# create user microverse-user -s
+
+# Create db 
+postgres=# create db ror_blog_m5_w1_development -s
+
+# Destroys older, create new and populate with seed from the terminal
+$ rake db:reset
+```
+
+
+### Apply migration (only if you generate a new migration file)
+
+```cmd
+rails db:migrate
 ```
 
 ### Install Stylelint

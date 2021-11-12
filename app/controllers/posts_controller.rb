@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
   def like_hit
     post_id = params[:data][:post_id]
@@ -13,38 +14,35 @@ class PostsController < ApplicationController
     User.all_posts(id)
   end
 
-  # GET /posts or /posts.json
   def index
     @posts = Post.all
     @user = User.find_by(id: params[:user_id])
     @user_posts = Post.where(user_id: params[:user_id])
     @post_data = prepare_post_comment
+    current_user
   end
 
-  # GET /posts/1 or /posts/1.json
   def show
-    @user = User.find_by(id: params[:user_id])
+    user_id = current_user[:id]
+    post_id = params[:id]
+    @user = User.find_by(id: user_id)
     @user_posts = []
-    @user_posts << Post.find_by(id: params[:id])
+    @user_posts << Post.find_by(id: post_id)
     data = prepare_post_comment
-    @post_data = data[0]
+    @post_data = data.pop
   end
 
-  # GET /posts/new
   def new
     @post = Post.new
   end
 
-  # GET /posts/1/edit
   def edit; end
 
-  # POST /posts or /posts.json
   def create
-    id = params[:user_id]
+    id = current_user[:id]
     title = post_params[:title]
     text = post_params[:text]
     @post = Post.new(user_id: id, title: title, text: text)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -60,7 +58,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1 or /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -73,23 +70,20 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to "/users/#{current_user.id}/posts", notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_post
-    @post = Post.find(params[:id])
+    @post = !Post.find(params[:id]).nil?
   end
 
-  # Only allow a list of trusted parameters through.
   def post_params
     params.fetch(:post, {})
     params.require(:post).permit(:title, :text)
