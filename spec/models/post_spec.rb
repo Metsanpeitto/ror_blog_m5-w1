@@ -2,7 +2,6 @@ require 'rails_helper'
 require_relative '../../app/models/user'
 
 RSpec.describe Post, type: :model do
-  # let(:user) { create(:user) }
   let(:user) { FactoryBot.create(:user_with_posts) }
 
   subject do
