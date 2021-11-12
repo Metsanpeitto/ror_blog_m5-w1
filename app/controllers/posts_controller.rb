@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     @post = Post.update_counter(@post)
     @comments = @post.comments
   end
-  
+
   def new
     @post = Post.new
   end

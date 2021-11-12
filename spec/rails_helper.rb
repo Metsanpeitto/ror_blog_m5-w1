@@ -111,8 +111,8 @@ RSpec.configure do |config|
   config.include Features::SessionHelpers, type: :feature
   config.extend Features::SessionHelpers, type: :request
 
-  Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
+  Shoulda::Matchers.configure do |conf|
+    conf.integrate do |with|
       with.test_framework :rspec
       with.library :rails
     end

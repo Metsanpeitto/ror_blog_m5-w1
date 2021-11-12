@@ -19,7 +19,7 @@ RSpec.describe User, type: :model do
     skip('Add a hash of attributes invalid for your model')
   end
   subject do
-   user
+    user
   end
 
   describe 'GET #index' do
