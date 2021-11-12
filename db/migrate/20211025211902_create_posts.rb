@@ -1,0 +1,17 @@
+class CreatePosts < ActiveRecord::Migration[6.1]
+  def change
+    create_table :posts do |t|
+      t.references :user, null: false, foreign_key: true,index: true
+      t.string :title
+      t.text :text
+      t.integer :comments_counter, default: 1
+<<<<<<< HEAD:db/migrate/20211025213357_create_posts.rb
+      t.integer :likes_counter, default: 1 
+=======
+      t.integer :likes_counter, default: 1
+>>>>>>> authorization-branch-copy:db/migrate/20211025211902_create_posts.rb
+
+      t.timestamps
+    end
+  end
+end

@@ -15,5 +15,7 @@ class Ability
       can :create, :all
       can :read, :all
     end
+
+    can :manage, Post, Comment if user.present?
   end
 end

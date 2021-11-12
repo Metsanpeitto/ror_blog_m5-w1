@@ -11,9 +11,11 @@ class User < ApplicationRecord
   has_many :posts, dependent: :delete_all
   validates :name, presence: true, allow_blank: false
   validates :photo, :bio, :email, presence: true
-  validates :post_counter, presence: true, numericality: { other_than: 0 }
+  validates :post_counter, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  ROLES = %i[admin default].freeze
+  # rubocop: disable all
+  Roles = %i[admin default].freeze
+  # rubocop: enable all
 
   def is?(requested_role)
     role == requested_role.to_s

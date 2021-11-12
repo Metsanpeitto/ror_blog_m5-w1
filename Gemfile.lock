@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/pocke/unreleased-rubocop-config.git
-  revision: 7494e0f8c1ecce7dba45f0008d763c0549c328f4
-  specs:
-    unreleased-rubocop-config (0.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -120,6 +114,9 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
+    jwt (2.3.0)
     launchy (2.5.0)
       addressable (~> 2.7)
     listen (3.7.0)
@@ -149,6 +146,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
     rack-proxy (0.7.0)
@@ -212,6 +211,19 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
+    rswag (2.4.0)
+      rswag-api (= 2.4.0)
+      rswag-specs (= 2.4.0)
+      rswag-ui (= 2.4.0)
+    rswag-api (2.4.0)
+      railties (>= 3.1, < 7.0)
+    rswag-specs (2.4.0)
+      activesupport (>= 3.1, < 7.0)
+      json-schema (~> 2.2)
+      railties (>= 3.1, < 7.0)
+    rswag-ui (2.4.0)
+      actionpack (>= 3.1, < 7.0)
+      railties (>= 3.1, < 7.0)
     rubocop (1.22.3)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
@@ -221,7 +233,7 @@ GEM
       rubocop-ast (>= 1.12.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.12.0)
+    rubocop-ast (1.13.0)
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
@@ -246,9 +258,9 @@ GEM
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.2.2)
-      actionpack (>= 4.0)
-      activesupport (>= 4.0)
+    sprockets-rails (3.3.0)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     thor (1.1.0)
     tilt (2.0.10)
@@ -297,21 +309,23 @@ DEPENDENCIES
   factory_bot_rails
   faker
   jbuilder (~> 2.7)
+  jwt
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
+  rack-cors
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-controller-testing
   rspec-rails (>= 2.0.0.beta)
-  rubocop
+  rswag
+  rubocop (>= 1.0, < 2.0)
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers
   spring
   turbolinks (~> 5)
   tzinfo-data
-  unreleased-rubocop-config!
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
@@ -320,4 +334,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.28
+   2.2.31

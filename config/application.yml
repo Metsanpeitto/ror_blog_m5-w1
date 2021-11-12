@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Add configuration values here, as shown below.
 #
 # pusher_app_id: "2954"
@@ -11,3 +12,7 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 GMAIL_USERNAME: "jarriror@gmail.com"
 GMAIL_PASSWORD: "rubyonrails"
+=======
+GMAIL_USERNAME: "jarriror@gmail.com"
+GMAIL_PASSWORD: "rubyonrails"
+>>>>>>> authorization-branch-copy
