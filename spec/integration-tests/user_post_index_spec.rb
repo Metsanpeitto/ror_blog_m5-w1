@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User post show view', type: :feature do
+RSpec.describe 'User post index view', type: :feature do
   subject { page }
   before do
     login_user
@@ -30,8 +30,8 @@ RSpec.describe 'User post show view', type: :feature do
       page.all('p', class: 'bio-text')
     end
 
-    # it 'I can see the first comments on a post.' do
-    #  page.find('h6', text: 'This comment belongs to the post above.')
-    # end
+    it 'I can see the first comments on a post.' do
+      expect(page).to have_content('Test rest of the text')
+    end
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Login view', type: :system do
+RSpec.describe 'Login view', type: :request do
   describe 'sign_in page' do
     it 'shows the email label' do
       visit new_user_session_path

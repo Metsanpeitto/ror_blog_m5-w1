@@ -7,6 +7,7 @@ RSpec.describe 'User post show view', type: :feature do
     @current_user = User.last
     @current_user.confirm
     @post = FactoryBot.create :post_with_comments, comments_counter: 3, user: @current_user
+    @comments = @post.comments
     visit "/users/#{@current_user.id}/posts/#{@post.id}"
   end
 
@@ -36,7 +37,7 @@ RSpec.describe 'User post show view', type: :feature do
     end
 
     it 'I can see the comment each commentor left.' do
-      page.all('h6', class: 'post_comment-text')
+      expect(page).to have_content 'This comment tells lot of stuff in the form of, of course, a post.'
     end
   end
 end

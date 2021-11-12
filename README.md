@@ -18,10 +18,8 @@ The app is simple blog where users can create an account in order to create post
 
 ### Prerequisites
 
-- To run this project you must to have ruby installed in your machine. If you don't have it
+To run this project you must to have ruby installed in your machine. If you don't have it
 follow the instructions [here](https://www.ruby-lang.org/en/documentation/installation/)
-- Postgres
-
 
 ## Getting Started
 
@@ -31,56 +29,6 @@ If you want a copy of this file go to the github repository and download it from
 
 
 ### Setup
-
-* Clone the repo
-    ``` bash
-    git clone  https://github.com/Metsanpeitto/ror_blog_m5-w1.git
-    ```
-  
-* Cd to the dir 
-    ``` bash
-    cd ror_blog_m5-w1
-    ```
-* Instal yarn dependency
-    ``` bash
-      yarn
-    ```
-* Install gem dependency
-    ``` bash
-      bundle
-    ```
-* Create new postgres user, create new db and update the user to superuser
-    ``` bash
-      sudo -su postgres
-      psql
-      create user microverse_user with password 'postgres';
-      ALTER USER microverse_user WITH SUPERUSER;
-      create database ror_blog_m5_w1_development owner microverse_user;
-    ```
-* Update the db
-  ``` bash
-    rails db:reset
-  ```
-
-* Becuause the email permission will be trouble, log into gmail with
-    ``` bash
-      email: jarriror@gmail.com
-      password: rubyonrails
-    ```
-* When asks for an email to confirm use
-  ``` bash
-    abraham@waldenberginc.com
-  ```
-
-* You can now logout and start the application
-   ``` bas
-    rails s
-  ```
-* You can see the working app at
-  http://localhost:3000
-
-
-### Verify rubocop
 
 ```cmd
 git clone  https://github.com/Metsanpeitto/ror_blog_m5-w1.git
@@ -117,16 +65,16 @@ $ rake db:reset
 rails db:migrate
 ```
 
-### Install Stylelint
+### Usage
 
 ```cmd
 $ruby main.rb
 ```
 
-### Auto fix Stylelint
+### Verify rubocop
 
-```cmd
-npx stylelint "**/*.{css,scss}" --fix
+```
+$ rubocop -A
 ```
 
 ### Instruction for non technical persons
@@ -156,12 +104,6 @@ If you are non a technical person you can download the zip file.
 - LinkedIn: [Abraham Rodriguez](https://www.linkedin.com/in/abraham-rodriguez-3283a319a/)
 - Portfolio: [Waldenberg](https://portfolio.waldenberginc.com)
 
-👤 Simon Grchevski
-
-- GitHub: [GitHub](https://github.com/SimonGrchevski)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/simon-grchevski-682935209/)
-- Twitter: [Twitter](https://twitter.com/grchevski)
-
 =======
 
 ## 🤝 Contributing
@@ -185,6 +127,8 @@ Give a ⭐️ if you like this project!
 
 =======
 
+
 [![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+
 

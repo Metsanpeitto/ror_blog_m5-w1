@@ -9,15 +9,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav id="user_nav">
+    <div id="user_nav">
       <% if user_signed_in? %>
         Signed in as <%= current_user.email %>. This cannot be cheese?
         <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-        <div><%= link_to 'Edit password', edit_user_registration_path%></div>
       <% else %>
         <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
       <% end %>
-    </nav>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

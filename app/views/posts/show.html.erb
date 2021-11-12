@@ -13,7 +13,8 @@
     <% if @comments %>
       <% @comments.includes([:user]).each do |comment| %>
         <div class="post-comment">
-          <h6 class="post_comment-text"><%= comment.user.name%> : <%= comment.text%></h6>
+          <h6 class="post_comment-text"><%= comment.user.name%> : </h6>
+          <h5 class="post_comment-text-name"><%= comment.text%></h5>
         </div>
       <% end %>
     <% end %>

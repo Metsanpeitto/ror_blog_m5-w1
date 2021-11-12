@@ -1,8 +1,10 @@
-RSpec.describe 'Login view', type: :system do
+require 'rails_helper'
+
+RSpec.describe 'Login view', type: :request do
   describe 'Login view ' do
     it "When I click the submit button without filling in the email
   and the password, I get a detailed error." do
-      visit new_user_session_path
+      visit '/users/sign_in'
 
       find('#user_email').set('')
       find('#user_password').set('')

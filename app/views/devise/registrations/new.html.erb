@@ -30,6 +30,10 @@
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
+      <div class="field">
+        <%= f.label :post_counter %><br />
+        <%= f.number_field :post_counter, autofocus: true, default: 1 %>
+      </div>
       <div class="actions">
         <%= f.submit "Sign up" %>
       </div>

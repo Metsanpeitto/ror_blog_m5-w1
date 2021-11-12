@@ -98,8 +98,8 @@ config.action_mailer.smtp_settings = {
   :address => 'smtp.gmail.com',
   :port => 587,
   :domain => 'smtp.gmail.com',
-  :user_name => "jarriror@gmail.com",
-  :password => "rubyonrails",
+  :user_name => ENV["GMAIL_USERNAME"],
+  :password => ENV["GMAIL_PASSWORD"],
   :authentication => 'plain',
   :enable_starttls_auto => true
 } 

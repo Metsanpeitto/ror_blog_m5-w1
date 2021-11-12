@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    if user.role.eql? 'admin'
+    if user.role == 'admin'
       can :manage, :all
     else
       can :manage, Post do |post|
@@ -15,7 +15,5 @@ class Ability
       can :create, :all
       can :read, :all
     end
-
-    can :manage, Post, Comment if user.present?
   end
 end

@@ -14,12 +14,14 @@ class PostsController < ApplicationController
     User.all_posts(id)
   end
 
+  # GET /posts or /posts.json
   def index
     @user = User.find_by(id: params[:user_id])
     @posts = Post.where(user_id: params[:user_id])
     @posts = Post.update_all(@posts)
   end
 
+  # GET /posts/1 or /posts/1.json
   def show
     @user = User.find_by(id: params[:user_id])
     @post = @user.posts.find_by(id: params[:id])
@@ -27,6 +29,7 @@ class PostsController < ApplicationController
     @comments = @post.comments
   end
 
+  # GET /posts/new
   def new
     @post = Post.new
   end
