@@ -5,11 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :text
       t.integer :comments_counter, default: 1
-<<<<<<< HEAD:db/migrate/20211025213357_create_posts.rb
-      t.integer :likes_counter, default: 1 
-=======
       t.integer :likes_counter, default: 1
->>>>>>> devise-branch-copy:db/migrate/20211025211902_create_posts.rb
 
       t.timestamps
     end
