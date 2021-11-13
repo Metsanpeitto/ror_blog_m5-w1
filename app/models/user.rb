@@ -11,28 +11,32 @@ class User < ApplicationRecord
   has_many :posts, dependent: :delete_all
   validates :name, presence: true, allow_blank: false
   validates :photo, :bio, :email, presence: true
-  validates :post_counter, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :post_counter, presence: true, numericality: { other_than: 0 }
 
-  # rubocop: disable all
-  Roles = %i[admin default].freeze
-  # rubocop: enable all
+  ROLES = %i[admin default].freeze
 
   def is?(requested_role)
     role == requested_role.to_s
   end
 
-  def self.obtain_last_posts(id)
-    Post.where(user_id: id).limit(3)
+  def obtain_last_posts(id)
+    @user = User.find_by(id: id)
+    @posts = @user.posts.limit(3)
   end
 
-  def self.obtain_all_posts(id)
-    Post.where(user_id: id)
+  def obtain_all_posts(id)
+    @user = User.find_by(id: id)
+    @posts = @user.posts
   end
 
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil
     save!(validate: false)
+  end
+
+  def recent_posts(limit = 3)
+    posts.includes(:comments).order('created_at').last(limit)
   end
 
   private

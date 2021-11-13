@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
-gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -52,17 +51,20 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'database_cleaner'
+  gem 'email_spec'
   gem 'faker'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'webdrivers'
 end
 
 gem 'devise'
 
+gem 'rubocop'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'action_mailer_cache_delivery'
 gem 'cancancan'
+gem 'figaro'
+gem 'unreleased-rubocop-config', github: 'pocke/unreleased-rubocop-config'

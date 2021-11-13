@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(version: 2021_10_30_134718) do
     t.string "photo"
     t.text "bio"
     t.integer "post_counter", default: 1
-    t.boolean "email_confirmed"
-    t.string "confirm_token"
-    t.string "role", default: "default"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role", default: "default"
+    t.boolean "email_confirmed"
+    t.string "confirm_token"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

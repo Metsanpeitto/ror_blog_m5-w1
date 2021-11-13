@@ -2,7 +2,9 @@ require 'rails_helper'
 require_relative '../../app/models/user'
 
 RSpec.describe Post, type: :model do
-  let(:user) { create(:user) }
+  # let(:user) { create(:user) }
+  let(:user) { FactoryBot.create(:user_with_posts) }
+
   subject do
     described_class.new(user_id: :user, title: 'The post-test', text: 'Alkdfgjdklfgasdasdasdasd', likes_counter: 1,
                         comments_counter: 1)
@@ -34,6 +36,8 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
   it 'method most_recent returns comments' do
-    expect(described_class.most_recent(1)).to be_truthy
+    posts = user.posts
+    @post = posts[0]
+    expect(@post.most_recent(@post.id)).to be_truthy
   end
 end

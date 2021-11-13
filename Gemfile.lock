@@ -1,6 +1,14 @@
+GIT
+  remote: https://github.com/pocke/unreleased-rubocop-config.git
+  revision: 7494e0f8c1ecce7dba45f0008d763c0549c328f4
+  specs:
+    unreleased-rubocop-config (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    action_mailer_cache_delivery (0.3.7)
+      actionmailer (>= 3.0)
     actioncable (6.1.4.1)
       actionpack (= 6.1.4.1)
       activesupport (= 6.1.4.1)
@@ -85,12 +93,6 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    database_cleaner (2.0.1)
-      database_cleaner-active_record (~> 2.0.0)
-    database_cleaner-active_record (2.0.1)
-      activerecord (>= 5.a)
-      database_cleaner-core (~> 2.0.0)
-    database_cleaner-core (2.0.1)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -98,6 +100,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    email_spec (2.2.0)
+      htmlentities (~> 4.3.3)
+      launchy (~> 2.1)
+      mail (~> 2.7)
     erubi (1.10.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -107,12 +113,17 @@ GEM
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.4)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    htmlentities (4.3.4)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -212,7 +223,7 @@ GEM
       rubocop-ast (>= 1.12.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.13.0)
+    rubocop-ast (1.12.0)
       parser (>= 3.0.1.1)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
@@ -277,15 +288,17 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  action_mailer_cache_delivery
   bootsnap (>= 1.4.4)
   bullet
   byebug
   cancancan
   capybara (>= 3.26)
-  database_cleaner
   devise
+  email_spec
   factory_bot_rails
   faker
+  figaro
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -294,13 +307,14 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rails-controller-testing
   rspec-rails (>= 2.0.0.beta)
-  rubocop (>= 1.0, < 2.0)
+  rubocop
   sass-rails (>= 6)
   selenium-webdriver
   shoulda-matchers
   spring
   turbolinks (~> 5)
   tzinfo-data
+  unreleased-rubocop-config!
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
@@ -309,4 +323,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.31
+   2.2.28

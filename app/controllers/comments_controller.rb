@@ -1,7 +1,12 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_comment, only: %i[show edit update destroy]
   before_action :set_user
   before_action :set_post
+
+  # rescue_from CanCan::AccessDenied do
+  #  redirect_to root_path
+  # end
 
   # GET /comments or /comments.json
   def index
@@ -22,12 +27,12 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @post = Post.find_by(id: params[:post_id])
-    @comment = Comment.new(user_id: @user.id, post_id: @post.id, text: params[:comment][:body])
+    @comment = Comment.new(user_id: current_user.id, post_id: @post.id, text: params[:comment][:text])
     respond_to do |format|
       if @comment.save
         format.html do
           flash[:notice] = 'You have successfully create a comment.'
-          redirect_to user_post_path(id: @post.id, user_id: @user.id), notice: 'Comment was successfully created.'
+          redirect_back fallback_location: root_path, notice: 'Comment was successfully created.'
         end
         format.json { render :show, status: :created, location: @comment }
       else

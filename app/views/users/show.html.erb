@@ -11,10 +11,13 @@
     <p class="bio-text"><%= @user.bio %></p>
   </div>
   <% @my_posts.each do |post| %>
-    <div class="bio">
-      <h5 class="bio-title"> Post #<%= post.title%> </h5>
-      <p class="bio-text"><%= post.text %></p>
-    </div>
+    <%= link_to ("/users/#{@user.id}/posts/#{post.id}"), id:post.id, class: 'card-link' do %>
+      <div class="bio">
+        <h5 class="bio-title"> Post #<%= post.title%> </h5>
+        <p class="bio-text"><%= post.text %></p>
+      </div>
+    <% end %>
   <% end %>
-  <%= button_to "See all posts",  class: "user-button-all", id: "btn-user-close" %>
+  <%= link_to ("/users/#{@user.id}/posts/new") %>
+  <%= link_to "All posts", user_posts_path(@user.id), class: "button is-link is-small" %>  <%= button_to "New post", { action: "new" }, class: "user-button-all", id: "btn-user-close" %>
 </div>

@@ -1,25 +1,22 @@
 <div class="posts">
+  <h5>The post loaded was:'</h5>
   <div class="bio">
     <div class="post-top">
-      <h5 class="bio-title"> Post #<%= @post_data[0].title%> by <%= @user.name %> </h5>
-      <h5 class="bio-likes"> Comments: <%= @post_data[0].comments_counter %>, Likes: <%= @post_data[0].likes_counter %> </h5>
+      <h5 class="bio-title"> Post #<%= @post.title%> by <%= @user.name %> </h5>
+      <h5 class="bio-likes"> Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %> </h5>
     </div>
-    <p class="bio-text"><%= @post_data[0].text %></p>
-    <%= button_to "Like", { controller: "posts", action: "like_hit", data: {post_id: @post_data[0], user_id: @user.id  }}, class: 'btn btn-danger' %>
+    <p class="bio-text"><%= @post.text %></p>
+    <%= button_to "Like", { controller: "posts", action: "like_hit", data: {post_id: @post, user_id: @user.id  }}, class: 'btn btn-danger' %>
   </div>
   <div class="post-comments">
-    <%= form_with(model: [@post, @post.comments.build]) do |f| %>
-      <div class="form-group-comment">
-        <%= f.label 'New comment' %>
-        <%= f.text_area :body, class: 'form-control' %>
-      </div>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <%= render partial: '/posts/form_comment', :locals => {:@post => @post} %>
+    <% if @comments %>
+      <% @comments.includes([:user]).each do |comment| %>
+        <div class="post-comment">
+          <h6 class="post_comment-text"><%= comment.user.name%> : </h6>
+          <h5 class="post_comment-text-name"><%= comment.text%></h5>
+        </div>
+      <% end %>
     <% end %>
-    <% @post_data[1].each do |comment| %>
-      <div class="post-comment">
-        <h6 class="post_comment-text"><%= comment[0] %> : <%= comment[1].text%></h6>
-      </div>
-    <% end %>
-    <%%>
   </div>
 </div>

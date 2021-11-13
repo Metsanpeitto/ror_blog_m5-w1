@@ -46,7 +46,7 @@ bundle install
 ```cmd
 # Open Postgres form the terminal 
 $ sudo -u postgres -i
-$ psql
+$ps
 
 # Create user
 postgres=# create user microverse-user -s

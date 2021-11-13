@@ -4,13 +4,13 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @user = current_user
     @users = User.all
   end
 
   # GET /users/1 or /users/1.json
   def show
-    @my_posts = User.obtain_last_posts(params[:id])
+    @user = User.find_by(id: params[:id])
+    @my_posts = @user.posts
   end
 
   # GET /users/new
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
       user.email_activate
       flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
       Please sign in to continue."
-      # redirect_to signin_url
+      redirect_to signin_url
     else
       flash[:error] = 'Sorry. User does not exist'
       redirect_to root_url
