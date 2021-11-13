@@ -19,5 +19,5 @@
     <% end %>
   <% end %>
   <%= link_to ("/users/#{@user.id}/posts/new") %>
-  <button type="button" id="all_posts" >See all posts</button>
+  <%= link_to "All posts", user_posts_path(@user.id), class: "button is-link is-small" %>  <%= button_to "New post", { action: "new" }, class: "user-button-all", id: "btn-user-close" %>
 </div>

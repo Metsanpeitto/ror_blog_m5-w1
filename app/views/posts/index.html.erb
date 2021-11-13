@@ -28,5 +28,5 @@
       </div>
     <% end %>
   <% end %>
-  <%= button_to "New post", { action: "new" }, class: "user-button-all", id: "btn-user-close" %>
+  <%= link_to "All post", user_posts_path(@user.id), class: "button is-link is-small" %>  <%= button_to "New post", { action: "new" }, class: "user-button-all", id: "btn-user-close" %>
 </div>
