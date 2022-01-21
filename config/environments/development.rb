@@ -89,7 +89,7 @@ Bullet.add_footer = true
 config.action_mailer.delivery_method = :smtp
 host = 'localhost:3000' #replace with your own url
 config.action_mailer.default_url_options = { host: host }
-config.action_mailer.default_options = { from: "jarriror@gmail.com" }
+config.action_mailer.default_options = { from: ENV['RAILS_MAILER_ADDRESS'] }
 
 config.action_mailer.perform_deliveries = true
 config.action_mailer.default :charset => "utf-8"
@@ -99,8 +99,8 @@ config.action_mailer.smtp_settings = {
   :address => 'smtp.gmail.com',
   :port => 587,
   :domain => 'smtp.gmail.com',
-  :user_name => "jarriror@gmail.com",
-  :password => "rubyonrails",
+  :user_name => ENV['RAILS_MAILER_ADDRESS'],
+  :password => ENV['RAILS_MAILER_KEY'],
   :authentication => 'plain',
   :enable_starttls_auto => true
 } 
